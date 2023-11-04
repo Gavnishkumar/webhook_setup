@@ -25,7 +25,7 @@ app.get("/webhook",(req,res)=>{
 app.post('/webhook',(req,res)=>{
     let body_param=req.body;
     const verify_token=process.env.TOKEN;
-    console.log(JOSN.stringify(body_param,null,2));
+    console.log(JSON.stringify(body_param,null,2));
     if(body_param.object){
         if(body_param.entry && body_param.entry[0].changes && body_param.entry[0].changes[0].value.messages && body_param.entry[0].changes[0].value.messages[0]){
             let phone_no_id=body_param.entry[0].changes[0].value.phone_number_id;

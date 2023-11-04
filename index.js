@@ -32,9 +32,11 @@ app.post('/webhook',(req,res)=>{
             let from = body_param.entry[0].value.messages[0].from;
             let msg_body=body_param.entry[0].changes[0].value.messages[0].text.body;
             console.log(msg_body);
+            console.log("https://graph.facebook.com/v13.0/"+phone_no_id+"/message?access_token"+verify_token)
             axios({
                 method:"POST",
                 url:"https://graph.facebook.com/v13.0/"+phone_no_id+"/message?access_token"+verify_token,
+                
                 data:{
                     messaging_product:"whatsapp",
                     to:from,

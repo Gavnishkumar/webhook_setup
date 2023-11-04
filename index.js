@@ -4,7 +4,8 @@ const bodyParser = require('body-parser');
 const { default: axios } = require('axios');
 require('dotenv').config();
 const app= express().use(body_parser.json());
-app.listen(8000,()=>{
+const PORT=process.env.PORT || 8000
+app.listen(PORT,()=>{
     console.log("server started at 8000");
 })
 app.get("/webhook",(req,res)=>{

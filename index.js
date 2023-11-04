@@ -35,37 +35,37 @@ app.post('/webhook',(req,res)=>{
             let msg_body=body_param.entry[0].changes[0].value.messages[0].text.body;
             console.log(msg_body);
             console.log("https://graph.facebook.com/v17.0/"+phone_no_id+"/message?access_token"+verify_token)
-            const url="https://graph.facebook.com/v17.0/"+phone_no_id+"/message?access_token"+verify_token
-            axios.post(url,{
-                messaging_product:"whatsapp",
-                to:from,
-                text:{
-                    body:"hii... I'm Gavnish"
+            // const url="https://graph.facebook.com/v17.0/"+phone_no_id+"/message?access_token"+verify_token
+            // axios.post(url,{
+            //     messaging_product:"whatsapp",
+            //     to:from,
+            //     text:{
+            //         body:"hii... I'm Gavnish"
+            //     }
+            // },{
+            //     "Content-Type":"application/json"
+            // }) .then(res=>{
+            //     res.status(200)
+            //   })  
+            //   .catch(error=>{
+            //         console.log(error);
+            //         res.status(404);
+            //   });
+            axios({
+                method:"POST",
+                url:"https://graph.facebook.com/v17.0/"+phone_no_id+"/message?access_token="+verify_token,
+                data:{
+                    messaging_product:"whatsapp",
+                    to:from,
+                    text:{
+                        body:"hii... I'm Gavnish"
+                    }
+                },
+                headers:{
+                    "Content-Type":"application/json"
                 }
-            },{
-                "Content-Type":"application/json"
-            }) .then(res=>{
-                res.status(200)
-              })  
-              .catch(error=>{
-                    console.log(error);
-                    res.status(404);
-              });
-//             axios({
-//                 method:"POST",
-//                 url:"https://graph.facebook.com/v17.0/"+phone_no_id+"/message?access_token"+verify_token,
-//                 data:{
-//                     messaging_product:"whatsapp",
-//                     to:from,
-//                     text:{
-//                         body:"hii... I'm Gavnish"
-//                     }
-//                 },
-//                 headers:{
-//                     "Content-Type":"application/json"
-//                 }
-//             });
-//             res.status(200);
+            });
+            res.status(200);
         }else{
             res.status(404);
         }

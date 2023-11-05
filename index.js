@@ -23,7 +23,7 @@ app.get("/webhook", (req, res) => {
         }
     }
 });
-app.post('/webhook', (req, res) => {
+app.post('/webhook', (req,res) => {
     let body_param = req.body;
     const verify_token = process.env.TOKEN;
     console.log("received")
@@ -42,7 +42,7 @@ app.post('/webhook', (req, res) => {
                 "type": "text",
                 "text": {
                     "preview_url": false,
-                    "body": "hii.. I am gavnish"
+                    "body": "hii"+from +" is sending this message"
                 }
             });
 
@@ -59,7 +59,7 @@ app.post('/webhook', (req, res) => {
 
             axios.request(config)
                 .then((response) => {
-                    console.log("msg send");
+                    console.log("msg send ");
                 })
                 .catch((error) => {
                     console.log(error);

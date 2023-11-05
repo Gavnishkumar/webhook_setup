@@ -25,6 +25,7 @@ app.get("/webhook", (req, res) => {
 });
 app.post('/webhook', (req, res) => {
     let body_param = req.body;
+
     const verify_token = process.env.TOKEN;
     console.log(JSON.stringify(body_param, null, 2));
     if (body_param.object) {
@@ -36,24 +37,30 @@ app.post('/webhook', (req, res) => {
             let from = body_param.entry[0].changes[0].value.messages[0].from;
             let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
             console.log(msg_body);
+            console.log("https://graph.facebook.com/v17.0/" + phone_no_id + "/messages?access_token=" + verify_token)
+            const url = "https://graph.facebook.com/v17.0/" + phone_no_id + "/messages?access_token=" + verify_token
+
+
+
+            
             let data = JSON.stringify({
                 "messaging_product": "whatsapp",
                 "recipient_type": "individual",
-                "to": from,
+                "to": "+"+from,
                 "type": "text",
                 "text": {
                     "preview_url": false,
-                    "body": "hii.. I am gavnish"
+                    "body": "hii.. I gavnish"
                 }
             });
 
             let config = {
                 method: 'post',
                 maxBodyLength: Infinity,
-                url: 'https://graph.facebook.com/v17.0/'+ phone_no_id +'/messages?Content-Type=application/json',
+                url: 'https://graph.facebook.com/v17.0/137613659416752/messages?Content-Type=application/json',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer '+verify_token
+                    'Authorization': 'Bearer EAAEgB1BOiCQBOyJdzkewxzIRvZC1us5tUPZBZBlZBMYwPy5zCMOb8mybGUtpqZBBw9lQJPeMTQVSDkSJgyjo2fKU8HzBrc2NMZCO2tYZA6yCZBuDUekgUuRbpvLpLTvHN6v8mgHfsXKpBPYnJkgSnfNJnN9OYlZBg7oBZAb1TjPEiVjQBH3QS3U9ExEGExqcHmlTf9nZADBp1sPka8CRdBG7OYZD'
                 },
                 data: data
             };
@@ -65,6 +72,37 @@ app.post('/webhook', (req, res) => {
                 .catch((error) => {
                     console.log(error);
                 });
+
+            // axios.post(url,{
+            //     messaging_product:"whatsapp",
+            //     to:from,
+            //     text:{
+            //         body:"hii... I'm Gavnish"
+            //     }
+            // },{
+            //     "Content-Type":"application/json"
+            // }) .then(res=>{
+            //     res.status(200)
+            //   })  
+            //   .catch(error=>{
+            //         console.log(error);
+            //         res.status(404);
+            //   });
+            //     axios({
+            //         method:"POST",
+            //         url:"https://graph.facebook.com/v17.0/"+phone_no_id+"/messages?access_token="+verify_token,
+            //         data:{
+            //             messaging_product:"whatsapp",
+            //             to:from,
+            //             text:{
+            //                 body:"hii... I'm Gavnish"
+            //             }
+            //         },
+            //         headers:{
+            //             "Content-Type":"application/json"
+            //         }
+            //     });
+            //     res.status(200);
         } else {
             res.status(404);
         }

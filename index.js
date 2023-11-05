@@ -25,9 +25,8 @@ app.get("/webhook", (req, res) => {
 });
 app.post('/webhook', (req, res) => {
     let body_param = req.body;
-
     const verify_token = process.env.TOKEN;
-    console.log(JSON.stringify(body_param, null, 2));
+    console.log("received")
     if (body_param.object) {
         if (body_param.entry &&
             body_param.entry[0].changes &&
@@ -36,13 +35,6 @@ app.post('/webhook', (req, res) => {
             let phone_no_id = body_param.entry[0].changes[0].value.metadata.phone_number_id;
             let from = body_param.entry[0].changes[0].value.messages[0].from;
             let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
-            console.log(msg_body);
-            console.log("https://graph.facebook.com/v17.0/" + phone_no_id + "/messages?access_token=" + verify_token)
-            const url = "https://graph.facebook.com/v17.0/" + phone_no_id + "/messages?access_token=" + verify_token
-
-
-
-            
             let data = JSON.stringify({
                 "messaging_product": "whatsapp",
                 "recipient_type": "individual",
@@ -50,7 +42,7 @@ app.post('/webhook', (req, res) => {
                 "type": "text",
                 "text": {
                     "preview_url": false,
-                    "body": "hii.. I gavnish"
+                    "body": "hii.. I am gavnish"
                 }
             });
 
@@ -67,12 +59,11 @@ app.post('/webhook', (req, res) => {
 
             axios.request(config)
                 .then((response) => {
-                    console.log(JSON.stringify(response.data));
+                    console.log("msg send");
                 })
                 .catch((error) => {
                     console.log(error);
                 });
-
             // axios.post(url,{
             //     messaging_product:"whatsapp",
             //     to:from,

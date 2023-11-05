@@ -45,7 +45,6 @@ app.post('/webhook', (req,res) => {
                     "body": "hii"+from +" is sending this message in reply of "+msg_body
                 }
             });
-
             let config = {
                 method: 'post',
                 maxBodyLength: Infinity,
@@ -93,7 +92,7 @@ app.post('/webhook', (req,res) => {
             //             "Content-Type":"application/json"
             //         }
             //     });
-            //     res.status(200);
+                res.status(200);
         } else {
             res.status(404);
         }

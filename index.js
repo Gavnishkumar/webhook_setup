@@ -42,7 +42,7 @@ app.post('/webhook', (req,res) => {
                 "type": "text",
                 "text": {
                     "preview_url": false,
-                    "body": "hii"+from +" is sending this message"
+                    "body": "hii"+from +" is sending this message in reply of "+msg_body
                 }
             });
 

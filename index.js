@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 8000
 app.listen(PORT, () => {
     console.log("server started at 8000");
 })
+// This is get request from webhook to our server to verify this is the correct server that webhook have to communicate.
 app.get("/webhook", (req, res) => {
     let mode = req.query["hub.mode"];
     let challenge = req.query["hub.challenge"];
@@ -23,6 +24,7 @@ app.get("/webhook", (req, res) => {
         }
     }
 });
+// This is post request from webhook when webhook get a notification of received messages.
 app.post('/webhook', (req,res) => {
     let body_param = req.body;
     const verify_token = process.env.TOKEN;
@@ -42,7 +44,7 @@ app.post('/webhook', (req,res) => {
                 "type": "text",
                 "text": {
                     "preview_url": false,
-                    "body": "hii"+from +" is sending this message in reply of "+msg_body
+                    "body": "hii "+from +" is sending this message in reply of "+msg_body
                 }
             });
             let config = {
@@ -51,7 +53,7 @@ app.post('/webhook', (req,res) => {
                 url: 'https://graph.facebook.com/v17.0/137613659416752/messages?Content-Type=application/json',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer EAAEgB1BOiCQBOyJdzkewxzIRvZC1us5tUPZBZBlZBMYwPy5zCMOb8mybGUtpqZBBw9lQJPeMTQVSDkSJgyjo2fKU8HzBrc2NMZCO2tYZA6yCZBuDUekgUuRbpvLpLTvHN6v8mgHfsXKpBPYnJkgSnfNJnN9OYlZBg7oBZAb1TjPEiVjQBH3QS3U9ExEGExqcHmlTf9nZADBp1sPka8CRdBG7OYZD'
+                    'Authorization': 'Bearer EAALlzWygEW0BO6krSwDhwke5hEDFSZCXNrz9bv6RYIvMtWhBTMU5PAPSj6k0uE3X9Wi2yKPhsqainZCjoEnIs7sFUXSrGMWtEbkOzsr9oJ8ZBSPei89TuWc76odP27jNKERr27awW4ozmWRzZBB90Uns97KrIEUuOeaG7ovhzsyIT5EyOAWZCfEWAyrEhZB19mVh51KesPaxNm9a2Viy0ZD'
                 },
                 data: data
             };

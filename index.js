@@ -41,10 +41,15 @@ app.post('/webhook', (req,res) => {
                 "messaging_product": "whatsapp",
                 "recipient_type": "individual",
                 "to": "+"+from,
-                "type": "template",
-                "template":{
-                    "name": "1_first",
-		            "language": "en_GB"
+                "type": "text",
+                "text": {
+                    "preview_url": false,
+                    "body": "*Hi 👋, my name is Mr Safe. How can I help you today?🤔*"+
+                    "1. Sexual Harassment"+
+                    "2. Rape 3. Harassment"+
+                     "4. Hate Crime "+
+                     "5. Depression or Anxiety"+
+                     "6. Other Health Problems"
                 }
             });
            

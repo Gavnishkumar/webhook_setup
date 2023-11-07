@@ -53,7 +53,7 @@ app.post('/webhook', (req,res) => {
                 url: 'https://graph.facebook.com/v17.0/137613659416752/messages?Content-Type=application/json',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer EAALlzWygEW0BO6krSwDhwke5hEDFSZCXNrz9bv6RYIvMtWhBTMU5PAPSj6k0uE3X9Wi2yKPhsqainZCjoEnIs7sFUXSrGMWtEbkOzsr9oJ8ZBSPei89TuWc76odP27jNKERr27awW4ozmWRzZBB90Uns97KrIEUuOeaG7ovhzsyIT5EyOAWZCfEWAyrEhZB19mVh51KesPaxNm9a2Viy0ZD'
+                    'Authorization': 'Bearer EAAEgB1BOiCQBO8XN6RuZCqHwgZApycCz0qJIRKfcT0FM7hDkXgN5iatxjYZBFZCaCvB8mveYtq1IZAZAAZAYgwmvndxd4BRJ5BjpbZAjF2zmZCUQX0D2uViTp11ZBCor4QT0EIZBeo3o958EeWTnt6W5DYpyaAuTuLf6XahWZAfglKZA5A3gZBZCiPHX96zUTZAg1Ad4cvg3'
                 },
                 data: data
             };
@@ -65,7 +65,7 @@ app.post('/webhook', (req,res) => {
                 .catch((error) => {
                     console.log(error);
                 });
-                res.sendStatus(200)
+                res.sendStatus(200);
         } else {
             res.status(404);
         }

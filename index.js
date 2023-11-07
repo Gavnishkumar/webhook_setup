@@ -37,16 +37,26 @@ app.post('/webhook', (req,res) => {
             let phone_no_id = body_param.entry[0].changes[0].value.metadata.phone_number_id;
             let from = body_param.entry[0].changes[0].value.messages[0].from;
             let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
-            let data = JSON.stringify({
-                "messaging_product": "whatsapp",
-                "recipient_type": "individual",
-                "to": "+"+from,
-                "type": "text",
-                "text": {
-                    "preview_url": false,
-                    "body": "hii "+from +" is sending this message in reply of "+msg_body
+            // let data = JSON.stringify({
+            //     "messaging_product": "whatsapp",
+            //     "recipient_type": "individual",
+            //     "to": "+"+from,
+            //     "type": "text",
+            //     "text": {
+            //         "preview_url": false,
+            //         "body": "hii "+from +" is sending this message in reply of "+msg_body
+            //     }
+            // });
+            let data= JSON.stringify(
+                {
+                    "messaging_product": "whatsapp",
+                    "recipient_type": "individual",
+                    "to":'+'+from,
+                    "template": 297948256467241,
+                    "data": "templateData"
+                    // Additional parameters as required by the messaging service
                 }
-            });
+            )
             let config = {
                 method: 'post',
                 maxBodyLength: Infinity,

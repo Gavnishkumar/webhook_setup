@@ -2,6 +2,7 @@ const express = require('express');
 const body_parser = require('body-parser');
 const bodyParser = require('body-parser');
 const { default: axios } = require('axios');
+const msg = require('./messages.json')
 require('dotenv').config();
 const app = express().use(body_parser.json());
 const PORT = process.env.PORT || 8000
@@ -37,22 +38,9 @@ app.post('/webhook', (req,res) => {
             let phone_no_id = body_param.entry[0].changes[0].value.metadata.phone_number_id;
             let from = body_param.entry[0].changes[0].value.messages[0].from;
             let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
-            let data = JSON.stringify({
-                "messaging_product": "whatsapp",
-                "recipient_type": "individual",
-                "to": "+"+from,
-                "type": "text",
-                "text": {
-                    "preview_url": false,
-                    "body": "*Hi 👋, my name is Mr Safe. How can I help you today?🤔*"+
-                    "1. Sexual Harassment"+
-                    "2. Rape 3. Harassment"+
-                     "4. Hate Crime "+
-                     "5. Depression or Anxiety"+
-                     "6. Other Health Problems"
-                }
-            });
-           
+            msg[0].to="+"+from;
+            let data = JSON.stringify(msg[0]);
+           console.log(msg[0]);
             let config = {
                 method: 'post',
                 maxBodyLength: Infinity,

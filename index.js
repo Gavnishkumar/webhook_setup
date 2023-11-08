@@ -96,7 +96,7 @@ app.post('/webhook', async (req, res) => {
             else {
                 tosend = logicFuntion(user.index, msg_body);
                 let fieldToUpdate = indexToQuestion(user.index)
-                let update = await Userchat.updateOne(
+                let update = await Userchat.updateMany(
                     { phoneno: from },
                     {
                       $set: {
@@ -105,6 +105,7 @@ app.post('/webhook', async (req, res) => {
                       }
                     }
                   );
+                  
                   let msgtosend={
                     "messaging_product": "whatsapp",
                     "recipient_type": "individual",
@@ -112,7 +113,7 @@ app.post('/webhook', async (req, res) => {
                     "type": "text",
                     "text": msg[tosend].text
                   }
-                console.log(msgtosend);
+                
                 let data = JSON.stringify(msgtosend);
                 let config = {
                     method: 'post',

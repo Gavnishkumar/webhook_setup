@@ -6,7 +6,7 @@
         "type": "text",
         "text": {
             "preview_url": false,
-            "body": "*Hi 👋, my name is Mr Safe. How can I help you today?🤔* \n 1. Sexual Harassment \n 2. Rape \n 3. Harassment \n 4. Hate Crime \n 5. Depression or Anxiety \n 6. Other Health Problems"
+            "body": "*Hi 👋, my name is Mr Safe. How can I help you today?🤔* \n 1. _Sexual Harassment_ \n 2. _Rape_ \n 3. _Harassment_ \n 4. _Hate Crime_ \n 5. _Depression or Anxiety_ \n 6. _Other Health Problems_"
         }
     },
     {
@@ -16,7 +16,7 @@
         "type": "text",
         "text": {
             "preview_url": false,
-            "body": "Before we go further, we need to know about you.\n Please help us by answering some questions. \n \n *Are you currently safe? Yes/No*"
+            "body": "*Before we go further, we need to know about you.*\n *Please help us by answering some questions.* \n \n _Are you currently safe?_ \n *Yes/No*"
         }
     },
     {
@@ -36,7 +36,7 @@
         "type": "text",
         "text": {
             "preview_url": false,
-            "body": "*What is your name?*"
+            "body": "What is your name?"
         }
     },
     {
@@ -46,7 +46,7 @@
         "type": "text",
         "text": {
             "preview_url": false,
-            "body": "*Where are you based? \n (Eg.- India, United Kingdom, USA)*"
+            "body": "_Where are you based?_ \n *(Eg.- India, United Kingdom, USA)*"
         }
     },
     {
@@ -56,7 +56,7 @@
         "type": "text",
         "text": {
             "preview_url": false,
-            "body": "What is your contact number? \n *(Should be of 10 digits)*"
+            "body": "_What is your contact number?_ \n *(Should be of 10 digits)*"
         }
     },
     {
@@ -66,7 +66,7 @@
         "type": "text",
         "text": {   
             "preview_url": false,
-            "body": "What is your email address?\n *(eg abc@gmail.com)*"
+            "body": "_What is your email address?_ \n *(eg abc@gmail.com)*"
         }
     },
     {
@@ -76,7 +76,7 @@
         "type": "text",
         "text": {   
             "preview_url": false,
-            "body": "Do you recognize as an ethnic minority? \n *Yes/No*"
+            "body": "_Do you recognize as an ethnic minority?_ \n *Yes/No*"
         }
     },
     {
@@ -86,7 +86,7 @@
         "type": "text",
         "text": {   
             "preview_url": false,
-            "body": "Your Gender? \n *Male/Female/Others*"
+            "body": "_What is your employee or student id?_"
         }
     },
     {
@@ -96,7 +96,7 @@
         "type": "text",
         "text": {   
             "preview_url": false,
-            "body": "Are you assaulted? \n *Yes/No*"
+            "body": "_What is your gender?_ \n *Male/Female/Others*"
         }
     },
     {
@@ -106,7 +106,17 @@
         "type": "text",
         "text": {   
             "preview_url": false,
-            "body": "Was it a one-off incident? \n *Yes/No*"
+            "body": "_Are you assaulted?_ \n *Yes/No*"
+        }
+    },
+    {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": "",
+        "type": "text",
+        "text": {   
+            "preview_url": false,
+            "body": "_Was it a one-off incident?_ \n *Yes/No*"
         }
     },
     {
@@ -126,7 +136,7 @@
         "type": "text",
         "text": {   
             "preview_url": false,
-            "body": "Location of incident"
+            "body": "_Location of incident_"
         }
     },
     {
@@ -136,7 +146,7 @@
         "type": "text",
         "text": {   
             "preview_url": false,
-            "body": "Name of person(s) who assaulted you?"
+            "body": "_*Name of person(s) who assaulted you?*_"
         }
     },
     {
@@ -146,7 +156,7 @@
         "type": "text",
         "text": {   
             "preview_url": false,
-            "body": "Would you like to report anonymously or with your details? \n *Yes/No*"
+            "body": "_Would you like to report anonymously or with your details?_ \n *Yes/No*"
         }
     },
     {
@@ -156,7 +166,7 @@
         "type": "text",
         "text": {   
             "preview_url": false,
-            "body": "Would you like to report this to management? \n *Yes/No*"
+            "body": "_Would you like to report this to management?_ \n *Yes/No*"
         }
     },
     {
@@ -166,7 +176,17 @@
         "type": "text",
         "text": {   
             "preview_url": false,
-            "body": "*Thankyou so much! Our team would contact you soon*"
+            "body": "_*Thank you so much! Our team would contact you soon*_"
+        }
+    },
+    {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": "",
+        "type": "text",
+        "text": {   
+            "preview_url": false,
+            "body": "_*Please call on 999*_"
         }
     }
 ]

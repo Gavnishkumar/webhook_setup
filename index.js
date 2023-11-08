@@ -2,15 +2,20 @@ const express = require('express');
 const body_parser = require('body-parser');
 const bodyParser = require('body-parser');
 const { default: axios } = require('axios');
-const msg = require('./messages.json')
+const msg = require('./messages.json');
+const connectDB = require('./config/db');
+const { logicFuntion, indexToQuestion } = require('./logic')
+const Userchat = require('./model/UserChat');
 require('dotenv').config();
 const app = express().use(body_parser.json());
-const PORT = process.env.PORT || 8000
+const PORT = process.env.PORT || 8000;
+// connecting database
+connectDB();
 app.listen(PORT, () => {
     console.log("server started at 8000");
 })
 // This is get request from webhook to our server to verify this is the correct server that webhook have to communicate.
-let index=0;
+let index = 0;
 app.get("/webhook", (req, res) => {
     let mode = req.query["hub.mode"];
     let challenge = req.query["hub.challenge"];
@@ -27,10 +32,12 @@ app.get("/webhook", (req, res) => {
     }
 });
 // This is post request from webhook when webhook get a notification of received messages.
-app.post('/webhook', (req,res) => {
+app.post('/webhook', async (req, res) => {
     let body_param = req.body;
     const verify_token = process.env.TOKEN;
-    console.log("received")
+    console.log("received");
+
+
     if (body_param.object) {
         if (body_param.entry &&
             body_param.entry[0].changes &&
@@ -39,30 +46,85 @@ app.post('/webhook', (req,res) => {
             let phone_no_id = body_param.entry[0].changes[0].value.metadata.phone_number_id;
             let from = body_param.entry[0].changes[0].value.messages[0].from;
             let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
-
-            msg[index].to="+"+from;
-            let data = JSON.stringify(msg[index]);
-            index=(index+1)%17;
-           console.log(msg[index]);
-            let config = {
-                method: 'post',
-                maxBodyLength: Infinity,
-                url: 'https://graph.facebook.com/v17.0/137613659416752/messages?Content-Type=application/json',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer EAAEgB1BOiCQBO8XN6RuZCqHwgZApycCz0qJIRKfcT0FM7hDkXgN5iatxjYZBFZCaCvB8mveYtq1IZAZAAZAYgwmvndxd4BRJ5BjpbZAjF2zmZCUQX0D2uViTp11ZBCor4QT0EIZBeo3o958EeWTnt6W5DYpyaAuTuLf6XahWZAfglKZA5A3gZBZCiPHX96zUTZAg1Ad4cvg3'
-                },
-                data: data
-            };
-
-            axios.request(config)
-                .then((response) => {
-                    console.log("msg send ");
+            let user = await Userchat.findOne({ phoneno: from });
+            let tosend;
+            if (!user) {
+                const chat = new Userchat({
+                    "phoneno": from,
+                    "index": 0,
+                    "anyHarassment": '',
+                    "safe": 'yes',
+                    "organization": '',
+                    "name": '',
+                    "location": '',
+                    "contactNumber": '',
+                    "email": '',
+                    "employeeOrStudentId": '',
+                    "isEthnicMinority": '',
+                    "gender": '',
+                    "assaulted": '',
+                    "oneOffIncident": '',
+                    "dateOfIncident": '',
+                    "nameOfAssaulter": '',
+                    "reportAnonymously": '',
+                    "reportToManagement": '',
+                    "locationOfIncident": ''
                 })
-                .catch((error) => {
-                    console.log(error);
-                });
+                chat.save();
+                tosend = 0;
+                let data = JSON.stringify(msg[tosend]);
+                let config = {
+                    method: 'post',
+                    maxBodyLength: Infinity,
+                    url: 'https://graph.facebook.com/v17.0/137613659416752/messages?Content-Type=application/json',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer EAAEgB1BOiCQBO8XN6RuZCqHwgZApycCz0qJIRKfcT0FM7hDkXgN5iatxjYZBFZCaCvB8mveYtq1IZAZAAZAYgwmvndxd4BRJ5BjpbZAjF2zmZCUQX0D2uViTp11ZBCor4QT0EIZBeo3o958EeWTnt6W5DYpyaAuTuLf6XahWZAfglKZA5A3gZBZCiPHX96zUTZAg1Ad4cvg3'
+                    },
+                    data: data
+                };
+                axios.request(config)
+                    .then((response) => {
+                        console.log("msg send ");
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
                 res.sendStatus(200);
+            }
+            else {
+                tosend = logicFuntion(user.index, msg_body);
+                const fieldToUpdate = indexToQuestion(user.index)
+                let update = await Userchat.updateOne(
+                    { phoneno: from },
+                    {
+                      $set: {
+                        fieldToUpdate: msg_body,
+                        index: tosend
+                      }
+                    }
+                  );
+                msg[tosend].to = "+" + from;
+                let data = JSON.stringify(msg[tosend]);
+                let config = {
+                    method: 'post',
+                    maxBodyLength: Infinity,
+                    url: 'https://graph.facebook.com/v17.0/137613659416752/messages?Content-Type=application/json',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer EAAEgB1BOiCQBO8XN6RuZCqHwgZApycCz0qJIRKfcT0FM7hDkXgN5iatxjYZBFZCaCvB8mveYtq1IZAZAAZAYgwmvndxd4BRJ5BjpbZAjF2zmZCUQX0D2uViTp11ZBCor4QT0EIZBeo3o958EeWTnt6W5DYpyaAuTuLf6XahWZAfglKZA5A3gZBZCiPHX96zUTZAg1Ad4cvg3'
+                    },
+                    data: data
+                };
+                axios.request(config)
+                    .then((response) => {
+                        console.log("msg send ");
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+                res.sendStatus(200);
+            }
         } else {
             res.status(404);
         }

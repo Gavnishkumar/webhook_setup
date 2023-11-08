@@ -1,14 +1,17 @@
 [
+    
     {
+        
         "messaging_product": "whatsapp",
         "recipient_type": "individual",
         "to": "",
-        "type": "text",
+        "type": "text", 
         "text": {
             "preview_url": false,
             "body": "*Hi 👋, my name is Mr Safe. How can I help you today?🤔* \n 1. _Sexual Harassment_ \n 2. _Rape_ \n 3. _Harassment_ \n 4. _Hate Crime_ \n 5. _Depression or Anxiety_ \n 6. _Other Health Problems_"
         }
     },
+   
     {
         "messaging_product": "whatsapp",
         "recipient_type": "individual",
@@ -64,7 +67,7 @@
         "recipient_type": "individual",
         "to": "",
         "type": "text",
-        "text": {   
+        "text": {
             "preview_url": false,
             "body": "_What is your email address?_ \n *(eg abc@gmail.com)*"
         }
@@ -74,7 +77,7 @@
         "recipient_type": "individual",
         "to": "",
         "type": "text",
-        "text": {   
+        "text": {
             "preview_url": false,
             "body": "_Do you recognize as an ethnic minority?_ \n *Yes/No*"
         }
@@ -84,7 +87,7 @@
         "recipient_type": "individual",
         "to": "",
         "type": "text",
-        "text": {   
+        "text": {
             "preview_url": false,
             "body": "_What is your employee or student id?_"
         }
@@ -94,7 +97,7 @@
         "recipient_type": "individual",
         "to": "",
         "type": "text",
-        "text": {   
+        "text": {
             "preview_url": false,
             "body": "_What is your gender?_ \n *Male/Female/Others*"
         }
@@ -104,7 +107,7 @@
         "recipient_type": "individual",
         "to": "",
         "type": "text",
-        "text": {   
+        "text": {
             "preview_url": false,
             "body": "_Are you assaulted?_ \n *Yes/No*"
         }
@@ -114,7 +117,7 @@
         "recipient_type": "individual",
         "to": "",
         "type": "text",
-        "text": {   
+        "text": {
             "preview_url": false,
             "body": "_Was it a one-off incident?_ \n *Yes/No*"
         }
@@ -124,7 +127,7 @@
         "recipient_type": "individual",
         "to": "",
         "type": "text",
-        "text": {   
+        "text": {
             "preview_url": false,
             "body": "Date of incident(s)?"
         }
@@ -134,7 +137,7 @@
         "recipient_type": "individual",
         "to": "",
         "type": "text",
-        "text": {   
+        "text": {
             "preview_url": false,
             "body": "_Location of incident_"
         }
@@ -144,7 +147,7 @@
         "recipient_type": "individual",
         "to": "",
         "type": "text",
-        "text": {   
+        "text": {
             "preview_url": false,
             "body": "_*Name of person(s) who assaulted you?*_"
         }
@@ -154,7 +157,7 @@
         "recipient_type": "individual",
         "to": "",
         "type": "text",
-        "text": {   
+        "text": {
             "preview_url": false,
             "body": "_Would you like to report anonymously or with your details?_ \n *Yes/No*"
         }
@@ -164,7 +167,7 @@
         "recipient_type": "individual",
         "to": "",
         "type": "text",
-        "text": {   
+        "text": {
             "preview_url": false,
             "body": "_Would you like to report this to management?_ \n *Yes/No*"
         }
@@ -174,7 +177,7 @@
         "recipient_type": "individual",
         "to": "",
         "type": "text",
-        "text": {   
+        "text": {
             "preview_url": false,
             "body": "_*Thank you so much! Our team would contact you soon*_"
         }
@@ -184,9 +187,59 @@
         "recipient_type": "individual",
         "to": "",
         "type": "text",
-        "text": {   
+        "text": {
             "preview_url": false,
             "body": "_*Please call on 999*_"
+        }
+    },
+    {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": "",
+        "type": "text",
+        "text": {
+            "preview_url": false,
+            "body": "_*Give answwer in Yes/No*_"
+        }
+    },
+    {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": "",
+        "type": "text",
+        "text": {
+            "preview_url": false,
+            "body": "_Please give a correct contact no_ \n *(i.e of digit 10)*"
+        }
+    },
+    {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": "",
+        "type": "text",
+        "text": {
+            "preview_url": false,
+            "body": "_Please give a correct email no_ \n *(i.e of abc@def.hig)*"
+        }
+    },
+    {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": "",
+        "type": "text",
+        "text": {
+            "preview_url": false,
+            "body": "_Please give a correct gender_ \n *male,female or other*"
+        }
+    },
+    {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": "",
+        "type": "text",
+        "text": {
+            "preview_url": false,
+            "body": "_Your details has been submitted. Our team will contact you very soon_ \n *Thank Your*"
         }
     }
 ]

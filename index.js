@@ -95,7 +95,11 @@ app.post('/webhook', async (req, res) => {
                 res.sendStatus(200);
             }
             else {
+                
                 tosend = logicFuntion(user.index, msg_body);
+                if(tosend===19 || tosend===20 || tosend===21 || tosend===22){
+                    tosend=user.index;
+                }
                 let fieldToUpdate = indexToQuestion(user.index)
                 console.log(fieldToUpdate)
                 let update = await Userchat.updateMany(

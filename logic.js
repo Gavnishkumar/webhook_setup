@@ -23,11 +23,14 @@ const validateEmail = (email) => {
         break;
       }
       case 1:{
-        if(lastresponse==="yes"){
+        if(lastresponse.toLowerCase()==="yes"){
           return 2;
         }
-        else{
+        else if(lastresponse.toLowerCase()==="no"){
           return 18;
+        }
+        else {
+          return 19;
         }
         break;
       }
@@ -47,7 +50,7 @@ const validateEmail = (email) => {
           return 6;
         }
         else{
-          return 22;
+          return 20;
         }
         break;
       }
@@ -55,7 +58,7 @@ const validateEmail = (email) => {
         if(validateEmail(lastresponse)){
           return 7;
         }
-        return 23;
+        return 21;
         break;
       }
       case 7:{
@@ -63,7 +66,7 @@ const validateEmail = (email) => {
           return 8;
         }
         else{
-          return 24;
+          return 19;
         }
         break;
       }
@@ -76,7 +79,7 @@ const validateEmail = (email) => {
           return 10;
         }
         else{
-          return 25
+          return 22;
         }
         break;
       }
@@ -88,7 +91,7 @@ const validateEmail = (email) => {
           return 15;
         }
         else{
-          return 26;
+          return 19;
         }
         break;
       }
@@ -97,7 +100,7 @@ const validateEmail = (email) => {
           return 12;
         }
         else{
-          return 27;
+          return 19;
         }
         break;
       }
@@ -117,7 +120,7 @@ const validateEmail = (email) => {
           return 16;
         }
         else{
-          return 28;
+          return 19;
         }
         break;
       }
@@ -126,9 +129,17 @@ const validateEmail = (email) => {
           return 17;
         }
         else{
-          return 29;
+          return 19;
         }
         break;
+      }
+      case 17:{
+        return 23;
+        break;
+      }
+      case 18:{
+          return 23;
+          break;
       }
       
     }

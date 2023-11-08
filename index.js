@@ -46,6 +46,7 @@ app.post('/webhook', async (req, res) => {
             let phone_no_id = body_param.entry[0].changes[0].value.metadata.phone_number_id;
             let from = body_param.entry[0].changes[0].value.messages[0].from;
             let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
+
             let user = await Userchat.findOne({ phoneno: from });
             let tosend;
             if (!user) {
@@ -94,7 +95,7 @@ app.post('/webhook', async (req, res) => {
             }
             else {
                 tosend = logicFuntion(user.index, msg_body);
-                const fieldToUpdate = indexToQuestion(user.index)
+                let fieldToUpdate = indexToQuestion(user.index)
                 let update = await Userchat.updateOne(
                     { phoneno: from },
                     {
@@ -104,8 +105,14 @@ app.post('/webhook', async (req, res) => {
                       }
                     }
                   );
-                  let msgtosend=msg[tosend]
-                    msgtosend.to= "+"+from
+                  let msgtosend={
+                    "messaging_product": "whatsapp",
+                    "recipient_type": "individual",
+                    "to":"+"+from,
+                    "type": "text",
+                    "text": msg[tosend].text
+                  }
+                console.log(msgtosend);
                 let data = JSON.stringify(msgtosend);
                 let config = {
                     method: 'post',

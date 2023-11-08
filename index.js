@@ -104,8 +104,9 @@ app.post('/webhook', async (req, res) => {
                       }
                     }
                   );
-                msg[tosend].to = "+" + from;
-                let data = JSON.stringify(msg[tosend]);
+                  const msgtosend=msg[tosend]
+                    msgtosend.to="+"+from
+                let data = JSON.stringify(msgtosend);
                 let config = {
                     method: 'post',
                     maxBodyLength: Infinity,

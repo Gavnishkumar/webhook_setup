@@ -1,17 +1,14 @@
 [
-    
     {
-        
         "messaging_product": "whatsapp",
         "recipient_type": "individual",
         "to": "",
-        "type": "text", 
+        "type": "text",
         "text": {
             "preview_url": false,
             "body": "*Hi 👋, my name is Mr Safe. How can I help you today?🤔* \n 1. _Sexual Harassment_ \n 2. _Rape_ \n 3. _Harassment_ \n 4. _Hate Crime_ \n 5. _Depression or Anxiety_ \n 6. _Other Health Problems_"
         }
     },
-   
     {
         "messaging_product": "whatsapp",
         "recipient_type": "individual",

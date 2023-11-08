@@ -73,7 +73,7 @@ app.post('/webhook', async (req, res) => {
                 })
                 chat.save();
                 tosend = 0;
-                msg[0].to="+"+from
+                msg[0].to = "+" + from
                 let data = JSON.stringify(msg[0]);
                 let config = {
                     method: 'post',
@@ -96,17 +96,17 @@ app.post('/webhook', async (req, res) => {
                 res.sendStatus(200);
             }
             else {
-                
+
                 tosend = logicFuntion(user.index, msg_body);
-                if(tosend===19 || tosend===20 || tosend===21 || tosend===22 || tosend===23){
-                    let msgtosend={
+                if (tosend === 19 || tosend === 20 || tosend === 21 || tosend === 22 || tosend === 23) {
+                    let msgtosend = {
                         "messaging_product": "whatsapp",
                         "recipient_type": "individual",
-                        "to":"+"+from,
+                        "to": "+" + from,
                         "type": "text",
                         "text": msg[tosend].text
-                      }
-                    
+                    }
+
                     let data = JSON.stringify(msgtosend);
                     let config = {
                         method: 'post',
@@ -120,34 +120,34 @@ app.post('/webhook', async (req, res) => {
                     };
                     axios.request(config)
                         .then((response) => {
-                           
+
                             res.sendStatus(200);
                         })
                         .catch((error) => {
                             console.log(error);
                         });
-                    tosend=user.index;
+                    tosend = user.index;
                 }
                 let fieldToUpdate = indexToQuestion(user.index)
                 console.log(fieldToUpdate)
                 let update = await Userchat.updateMany(
                     { phoneno: from },
                     {
-                      $set: {
-                        [fieldToUpdate]: msg_body,
-                        index: tosend
-                      }
+                        $set: {
+                            [fieldToUpdate]: msg_body,
+                            index: tosend
+                        }
                     }
-                  );
-                  
-                  let msgtosend={
+                );
+
+                let msgtosend = {
                     "messaging_product": "whatsapp",
                     "recipient_type": "individual",
-                    "to":"+"+from,
+                    "to": "+" + from,
                     "type": "text",
                     "text": msg[tosend].text
-                  }
-                
+                }
+
                 let data = JSON.stringify(msgtosend);
                 let config = {
                     method: 'post',
@@ -161,7 +161,7 @@ app.post('/webhook', async (req, res) => {
                 };
                 axios.request(config)
                     .then((response) => {
-                        
+
                         res.sendStatus(200);
                     })
                     .catch((error) => {

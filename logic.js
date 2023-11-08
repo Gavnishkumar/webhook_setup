@@ -1,6 +1,6 @@
 
   const logicFuntion =(lastindex,lastresponse)=>{
-    switch (index) {
+    switch (lastindex) {
       case 0:{
         if(lastresponse<'0' || lastresponse>'6'){
           return 20
@@ -122,7 +122,6 @@
     }
   }
   const indexToQuestion=(index)=>{
-
       switch(index){
         case 0: {
           return "anyHarassment";

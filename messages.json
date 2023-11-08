@@ -199,7 +199,7 @@
         "type": "text",
         "text": {
             "preview_url": false,
-            "body": "_*Give answwer in Yes/No*_"
+            "body": "_Give answwer in *Yes/No*_"
         }
     },
     {
@@ -239,7 +239,7 @@
         "type": "text",
         "text": {
             "preview_url": false,
-            "body": "_Your details has been submitted. Our team will contact you very soon_ \n *Thank Your*"
+            "body": "_Your details has been submitted._"
         }
     }
 ]

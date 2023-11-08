@@ -88,6 +88,7 @@ app.post('/webhook', async (req, res) => {
                 axios.request(config)
                     .then((response) => {
                         console.log("msg send ");
+                        res.sendStatus(200);
                     })
                     .catch((error) => {
                         console.log(error);
@@ -119,7 +120,8 @@ app.post('/webhook', async (req, res) => {
                     };
                     axios.request(config)
                         .then((response) => {
-                            console.log("msg send ");
+                           
+                            res.sendStatus(200);
                         })
                         .catch((error) => {
                             console.log(error);
@@ -159,7 +161,8 @@ app.post('/webhook', async (req, res) => {
                 };
                 axios.request(config)
                     .then((response) => {
-                        console.log("msg send ");
+                        
+                        res.sendStatus(200);
                     })
                     .catch((error) => {
                         console.log(error);

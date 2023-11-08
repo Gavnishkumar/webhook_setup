@@ -73,7 +73,8 @@ app.post('/webhook', async (req, res) => {
                 })
                 chat.save();
                 tosend = 0;
-                let data = JSON.stringify(msg[tosend]);
+                msg[0].to="+"+from
+                let data = JSON.stringify(msg[0]);
                 let config = {
                     method: 'post',
                     maxBodyLength: Infinity,

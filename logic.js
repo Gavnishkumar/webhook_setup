@@ -1,8 +1,20 @@
 
+  
+const validatePhoneNumber = (phoneNumber) => {
+  // Regular expression for validating 10-digit phone numbers
+  const phoneRegex = /^\d{10}$/;
+  return phoneRegex.test(phoneNumber);
+};
+const validateEmail = (email) => {
+  // Regular expression for validating email addresses
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
   const logicFuntion =(lastindex,lastresponse)=>{
     switch (lastindex) {
       case 0:{
-        if(lastresponse<'0' || lastresponse>'6'){
+        if(lastresponse<'0' || lastresponse >'6'){
           return 20
         }
         else{
@@ -31,7 +43,7 @@
         return 5;
       }
       case 5:{
-        if(checkPhone){
+        if(validatePhoneNumber(lastresponse)){
           return 6;
         }
         else{
@@ -40,7 +52,7 @@
         break;
       }
       case 6:{
-        if(checkEmail){
+        if(validateEmail(lastresponse)){
           return 7;
         }
         return 23;

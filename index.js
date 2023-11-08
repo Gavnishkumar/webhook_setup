@@ -97,7 +97,7 @@ app.post('/webhook', async (req, res) => {
             else {
                 
                 tosend = logicFuntion(user.index, msg_body);
-                if(tosend===19 || tosend===20 || tosend===21 || tosend===22){
+                if(tosend===19 || tosend===20 || tosend===21 || tosend===22 || tosend===23){
                     tosend=user.index;
                 }
                 let fieldToUpdate = indexToQuestion(user.index)

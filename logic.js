@@ -124,15 +124,15 @@
   const indexToQuestion=(index)=>{
       switch(index){
         case 0: {
-          return anyHarassment
+          return "anyHarassment"
           break;
         }
         case 1: {
-          return 'safe'
+          return "safe"
           break;
         }
         case 2: {
-          return 'organization'
+          return "organization"
           break;
         }
         case 3: {

@@ -101,7 +101,7 @@ app.post('/webhook', async (req, res) => {
                     { phoneno: from },
                     {
                       $set: {
-                        fieldToUpdate: msg_body,
+                        [fieldToUpdate]: msg_body,
                         index: tosend
                       }
                     }

@@ -10,7 +10,7 @@ app.listen(PORT, () => {
     console.log("server started at 8000");
 })
 // This is get request from webhook to our server to verify this is the correct server that webhook have to communicate.
-const index=0;
+let index=0;
 app.get("/webhook", (req, res) => {
     let mode = req.query["hub.mode"];
     let challenge = req.query["hub.challenge"];

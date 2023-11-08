@@ -98,6 +98,32 @@ app.post('/webhook', async (req, res) => {
                 
                 tosend = logicFuntion(user.index, msg_body);
                 if(tosend===19 || tosend===20 || tosend===21 || tosend===22 || tosend===23){
+                    let msgtosend={
+                        "messaging_product": "whatsapp",
+                        "recipient_type": "individual",
+                        "to":"+"+from,
+                        "type": "text",
+                        "text": msg[tosend].text
+                      }
+                    
+                    let data = JSON.stringify(msgtosend);
+                    let config = {
+                        method: 'post',
+                        maxBodyLength: Infinity,
+                        url: 'https://graph.facebook.com/v17.0/137613659416752/messages?Content-Type=application/json',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer EAAEgB1BOiCQBO8XN6RuZCqHwgZApycCz0qJIRKfcT0FM7hDkXgN5iatxjYZBFZCaCvB8mveYtq1IZAZAAZAYgwmvndxd4BRJ5BjpbZAjF2zmZCUQX0D2uViTp11ZBCor4QT0EIZBeo3o958EeWTnt6W5DYpyaAuTuLf6XahWZAfglKZA5A3gZBZCiPHX96zUTZAg1Ad4cvg3'
+                        },
+                        data: data
+                    };
+                    axios.request(config)
+                        .then((response) => {
+                            console.log("msg send ");
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                        });
                     tosend=user.index;
                 }
                 let fieldToUpdate = indexToQuestion(user.index)

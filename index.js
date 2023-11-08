@@ -10,6 +10,7 @@ app.listen(PORT, () => {
     console.log("server started at 8000");
 })
 // This is get request from webhook to our server to verify this is the correct server that webhook have to communicate.
+const index=0;
 app.get("/webhook", (req, res) => {
     let mode = req.query["hub.mode"];
     let challenge = req.query["hub.challenge"];
@@ -38,9 +39,11 @@ app.post('/webhook', (req,res) => {
             let phone_no_id = body_param.entry[0].changes[0].value.metadata.phone_number_id;
             let from = body_param.entry[0].changes[0].value.messages[0].from;
             let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
-            msg[0].to="+"+from;
-            let data = JSON.stringify(msg[0]);
-           console.log(msg[0]);
+
+            msg[index].to="+"+from;
+            let data = JSON.stringify(msg[index]);
+            index=(index+1)%17;
+           console.log(msg[index]);
             let config = {
                 method: 'post',
                 maxBodyLength: Infinity,

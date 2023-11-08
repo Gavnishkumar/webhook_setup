@@ -8,5 +8,165 @@
             "preview_url": false,
             "body": "*Hi 👋, my name is Mr Safe. How can I help you today?🤔* \n 1. Sexual Harassment \n 2. Rape \n 3. Harassment \n 4. Hate Crime \n 5. Depression or Anxiety \n 6. Other Health Problems"
         }
+    },
+    {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": "",
+        "type": "text",
+        "text": {
+            "preview_url": false,
+            "body": "Before we go further, we need to know about you.\n Please help us by answering some questions. \n \n *Are you currently safe? Yes/No*"
+        }
+    },
+    {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": "",
+        "type": "text",
+        "text": {
+            "preview_url": false,
+            "body": "Which organization or university do you work for or study in? \n *(Eg. - Sasefied, FoodPiazza)*"
+        }
+    },
+    {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": "",
+        "type": "text",
+        "text": {
+            "preview_url": false,
+            "body": "*What is your name?*"
+        }
+    },
+    {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": "",
+        "type": "text",
+        "text": {
+            "preview_url": false,
+            "body": "*Where are you based? \n (Eg.- India, United Kingdom, USA)*"
+        }
+    },
+    {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": "",
+        "type": "text",
+        "text": {
+            "preview_url": false,
+            "body": "What is your contact number? \n *(Should be of 10 digits)*"
+        }
+    },
+    {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": "",
+        "type": "text",
+        "text": {   
+            "preview_url": false,
+            "body": "What is your email address?\n *(eg abc@gmail.com)*"
+        }
+    },
+    {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": "",
+        "type": "text",
+        "text": {   
+            "preview_url": false,
+            "body": "Do you recognize as an ethnic minority? \n *Yes/No*"
+        }
+    },
+    {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": "",
+        "type": "text",
+        "text": {   
+            "preview_url": false,
+            "body": "Your Gender? \n *Male/Female/Others*"
+        }
+    },
+    {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": "",
+        "type": "text",
+        "text": {   
+            "preview_url": false,
+            "body": "Are you assaulted? \n *Yes/No*"
+        }
+    },
+    {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": "",
+        "type": "text",
+        "text": {   
+            "preview_url": false,
+            "body": "Was it a one-off incident? \n *Yes/No*"
+        }
+    },
+    {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": "",
+        "type": "text",
+        "text": {   
+            "preview_url": false,
+            "body": "Date of incident(s)?"
+        }
+    },
+    {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": "",
+        "type": "text",
+        "text": {   
+            "preview_url": false,
+            "body": "Location of incident"
+        }
+    },
+    {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": "",
+        "type": "text",
+        "text": {   
+            "preview_url": false,
+            "body": "Name of person(s) who assaulted you?"
+        }
+    },
+    {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": "",
+        "type": "text",
+        "text": {   
+            "preview_url": false,
+            "body": "Would you like to report anonymously or with your details? \n *Yes/No*"
+        }
+    },
+    {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": "",
+        "type": "text",
+        "text": {   
+            "preview_url": false,
+            "body": "Would you like to report this to management? \n *Yes/No*"
+        }
+    },
+    {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": "",
+        "type": "text",
+        "text": {   
+            "preview_url": false,
+            "body": "*Thankyou so much! Our team would contact you soon*"
+        }
     }
 ]

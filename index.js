@@ -46,7 +46,9 @@ app.post('/webhook', async (req, res) => {
             let phone_no_id = body_param.entry[0].changes[0].value.metadata.phone_number_id;
             let from = body_param.entry[0].changes[0].value.messages[0].from;
             let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
-
+            if(msg_body.toLowerCase()==="restart"){
+                let dlt= await Userchat.findOne({phoneno:from});
+            }
             let user = await Userchat.findOne({ phoneno: from });
             let tosend;
             if (!user) {
@@ -139,7 +141,6 @@ app.post('/webhook', async (req, res) => {
                         }
                     }
                 );
-
                 let msgtosend = {
                     "messaging_product": "whatsapp",
                     "recipient_type": "individual",
@@ -167,7 +168,7 @@ app.post('/webhook', async (req, res) => {
                     .catch((error) => {
                         console.log(error);
                     });
-                res.sendStatus(200);
+                // res.sendStatus(200);
             }
         } else {
             res.status(404);

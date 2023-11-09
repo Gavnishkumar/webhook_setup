@@ -23,7 +23,7 @@ const UserChat = new mongoose.Schema({
     reportAnonymously: String,
     reportToManagement: String,
     locationOfIncident: String,
-    createdAt: { type: Date, default: Date.now, expires: 60 }
+    createdAt: { type: Date, default: Date.now, expires: 1200 }
   });
 
 // Create a model from the schema

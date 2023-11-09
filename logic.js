@@ -72,6 +72,7 @@ const validateEmail = (email) => {
       }
       case 8:{
         return 9;
+        
         break;
       }
       case 9:{

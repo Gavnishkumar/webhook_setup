@@ -43,12 +43,12 @@ app.post('/webhook', async (req, res) => {
             body_param.entry[0].changes &&
             body_param.entry[0].changes[0].value.messages &&
             body_param.entry[0].changes[0].value.messages[0]) {
-            let phone_no_id = body_param.entry[0].changes[0].value.metadata.phone_number_id;
-            let from = body_param.entry[0].changes[0].value.messages[0].from;
-            let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
-            if(msg_body.toLowerCase()==="restart"){
-                let dlt= await Userchat.deleteOne({phoneno:from});
-            }
+                let phone_no_id = body_param.entry[0].changes[0].value.metadata.phone_number_id;
+                let from = body_param.entry[0].changes[0].value.messages[0].from;
+                let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
+                if(msg_body.toLowerCase()==="restart"){
+                    let dlt= await Userchat.deleteOne({phoneno:from});
+                }
             let user = await Userchat.findOne({ phoneno: from });
             let tosend;
             if (!user) {
@@ -94,6 +94,7 @@ app.post('/webhook', async (req, res) => {
                     })
                     .catch((error) => {
                         console.log(error);
+                        res.sendStatus(404);
                     });
                 // res.sendStatus(200);
             }
@@ -127,6 +128,7 @@ app.post('/webhook', async (req, res) => {
                         })
                         .catch((error) => {
                             console.log(error);
+                            res.sendStatus(404);
                         });
                     tosend = user.index;
                 }
@@ -166,12 +168,13 @@ app.post('/webhook', async (req, res) => {
                         res.sendStatus(200);
                     })
                     .catch((error) => {
+                        res.sendStatus(404);
                         console.log(error);
                     });
                 // res.sendStatus(200);
             }
         } else {
-            res.status(404);
+            res.sendStatus(404);
         }
     }
 })

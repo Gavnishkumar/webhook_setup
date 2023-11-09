@@ -47,7 +47,7 @@ app.post('/webhook', async (req, res) => {
             let from = body_param.entry[0].changes[0].value.messages[0].from;
             let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
             if(msg_body.toLowerCase()==="restart"){
-                let dlt= await Userchat.findOne({phoneno:from});
+                let dlt= await Userchat.deleteOne({phoneno:from});
             }
             let user = await Userchat.findOne({ phoneno: from });
             let tosend;

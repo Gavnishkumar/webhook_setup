@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 // Define the schema for your "chat" collection
 const UserChat = new mongoose.Schema({
     phoneno: String,
@@ -23,7 +22,8 @@ const UserChat = new mongoose.Schema({
     nameOfAssaulter: String,
     reportAnonymously: String,
     reportToManagement: String,
-    locationOfIncident: String
+    locationOfIncident: String,
+    createdAt: { type: Date, default: Date.now, expires: 60 }
   });
 
 // Create a model from the schema

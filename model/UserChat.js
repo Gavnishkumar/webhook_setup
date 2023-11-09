@@ -22,8 +22,8 @@ const UserChat = new mongoose.Schema({
     nameOfAssaulter: String,
     reportAnonymously: String,
     reportToManagement: String,
-    locationOfIncident: String,
-    createdAt: { type: Date, default: 1,expireAfterSeconds: 60000 },
+    locationOfIncident: String
+    
   }); 
 // Create a model from the schema 
 const Userchat = mongoose.model('UserChat', UserChat);

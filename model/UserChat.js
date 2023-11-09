@@ -25,7 +25,7 @@ const UserChat = new mongoose.Schema({
     locationOfIncident: String,
     createdAt: { type: Date, default: Date.now },
   }, { 
-    expiresAfterSeconds: 300 // Automatically delete documents after 60 seconds (1 minute)
+    expiresAfterSeconds: 6000 // Automatically delete documents after 60 seconds (1 minute)
   
   });
 

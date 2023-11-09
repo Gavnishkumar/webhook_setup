@@ -23,10 +23,7 @@ const UserChat = new mongoose.Schema({
     reportAnonymously: String,
     reportToManagement: String,
     locationOfIncident: String,
-    createdAt: { type: Date, default: Date.now },
-  }, { 
-    expiresAfterSeconds: 6000 // Automatically delete documents after 60 seconds (1 minute)
-  
+    createdAt: { type: Date, default: Date.now, expires: 6000 },
   });
 
 // Create a model from the schema

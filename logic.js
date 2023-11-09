@@ -15,7 +15,7 @@ const validateEmail = (email) => {
     switch (lastindex) {
       case 0:{
         if(lastresponse<'0' || lastresponse >'6'){
-          return 20
+          return 23
         }
         else{
           return 1;
@@ -134,11 +134,11 @@ const validateEmail = (email) => {
         break;
       }
       case 17:{
-        return 23;
+        return 24;
         break;
       }
       case 18:{
-          return 23;
+          return 24;
           break;
       }
       

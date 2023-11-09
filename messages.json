@@ -236,6 +236,16 @@
         "type": "text",
         "text": {
             "preview_url": false,
+            "body": "_Please choose a numeber between \n *1 to 6*_"
+        }
+    },
+    {
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": "",
+        "type": "text",
+        "text": {
+            "preview_url": false,
             "body": "_Your details has been submitted._"
         }
     }

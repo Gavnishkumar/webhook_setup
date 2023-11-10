@@ -35,7 +35,7 @@ app.get("/webhook", (req, res) => {
 app.post('/webhook', async (req, res) => {
     let body_param = req.body;
     const verify_token = process.env.TOKEN;
-    console.log("received");
+
     let sentResponse=false;
 
     if (body_param.object) {
@@ -90,7 +90,7 @@ app.post('/webhook', async (req, res) => {
                 };
                 await axios.request(config)
                     .then((response) => {
-                        console.log("msg send ");
+                       
                         sentResponse=true;
                     })
                     .catch((error) => {
@@ -175,7 +175,6 @@ app.post('/webhook', async (req, res) => {
                 {
                     res.sendStatus(404);
                 }
-               
             }
         } else {
             res.sendStatus(404);

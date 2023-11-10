@@ -46,6 +46,10 @@ app.post('/webhook', async (req, res) => {
                 let phone_no_id = body_param.entry[0].changes[0].value.metadata.phone_number_id;
                 let from = body_param.entry[0].changes[0].value.messages[0].from;
                 let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
+                const header={
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer EAAEgB1BOiCQBO8XN6RuZCqHwgZApycCz0qJIRKfcT0FM7hDkXgN5iatxjYZBFZCaCvB8mveYtq1IZAZAAZAYgwmvndxd4BRJ5BjpbZAjF2zmZCUQX0D2uViTp11ZBCor4QT0EIZBeo3o958EeWTnt6W5DYpyaAuTuLf6XahWZAfglKZA5A3gZBZCiPHX96zUTZAg1Ad4cvg3'
+                }
                 if(msg_body.toLowerCase()==="restart"){
                     let dlt= await Userchat.deleteOne({phoneno:from});
                 }
@@ -80,11 +84,8 @@ app.post('/webhook', async (req, res) => {
                 let config = await {
                     method: 'post',
                     maxBodyLength: Infinity,
+                    headers: header,
                     url: 'https://graph.facebook.com/v17.0/137613659416752/messages?Content-Type=application/json',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Bearer EAAEgB1BOiCQBO8XN6RuZCqHwgZApycCz0qJIRKfcT0FM7hDkXgN5iatxjYZBFZCaCvB8mveYtq1IZAZAAZAYgwmvndxd4BRJ5BjpbZAjF2zmZCUQX0D2uViTp11ZBCor4QT0EIZBeo3o958EeWTnt6W5DYpyaAuTuLf6XahWZAfglKZA5A3gZBZCiPHX96zUTZAg1Ad4cvg3'
-                    },
                     data: data
                 };
                 await axios.request(config)
@@ -114,11 +115,8 @@ app.post('/webhook', async (req, res) => {
                     let config = await {
                         method: 'post',
                         maxBodyLength: Infinity,
+                        headers: header,
                         url: 'https://graph.facebook.com/v17.0/137613659416752/messages?Content-Type=application/json',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': 'Bearer EAAEgB1BOiCQBO8XN6RuZCqHwgZApycCz0qJIRKfcT0FM7hDkXgN5iatxjYZBFZCaCvB8mveYtq1IZAZAAZAYgwmvndxd4BRJ5BjpbZAjF2zmZCUQX0D2uViTp11ZBCor4QT0EIZBeo3o958EeWTnt6W5DYpyaAuTuLf6XahWZAfglKZA5A3gZBZCiPHX96zUTZAg1Ad4cvg3'
-                        },
                         data: data
                     };
                     await axios.request(config)
@@ -155,11 +153,8 @@ app.post('/webhook', async (req, res) => {
                 let config = {
                     method: 'post',
                     maxBodyLength: Infinity,
+                    headers: header,
                     url: 'https://graph.facebook.com/v17.0/137613659416752/messages?Content-Type=application/json',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Bearer EAAEgB1BOiCQBO8XN6RuZCqHwgZApycCz0qJIRKfcT0FM7hDkXgN5iatxjYZBFZCaCvB8mveYtq1IZAZAAZAYgwmvndxd4BRJ5BjpbZAjF2zmZCUQX0D2uViTp11ZBCor4QT0EIZBeo3o958EeWTnt6W5DYpyaAuTuLf6XahWZAfglKZA5A3gZBZCiPHX96zUTZAg1Ad4cvg3'
-                    },
                     data: data
                 };
                 axios.request(config)

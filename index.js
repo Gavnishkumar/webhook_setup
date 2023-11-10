@@ -77,7 +77,7 @@ app.post('/webhook', async (req, res) => {
                 tosend = 0;
                 msg[0].to = "+" + from
                 let data = JSON.stringify(msg[0]);
-                let config = {
+                let config = await {
                     method: 'post',
                     maxBodyLength: Infinity,
                     url: 'https://graph.facebook.com/v17.0/137613659416752/messages?Content-Type=application/json',
@@ -87,7 +87,7 @@ app.post('/webhook', async (req, res) => {
                     },
                     data: data
                 };
-                axios.request(config)
+                await axios.request(config)
                     .then((response) => {
                         console.log("msg send ");
                         res.sendStatus(200);
@@ -111,7 +111,7 @@ app.post('/webhook', async (req, res) => {
                     }
 
                     let data = JSON.stringify(msgtosend);
-                    let config = {
+                    let config = await {
                         method: 'post',
                         maxBodyLength: Infinity,
                         url: 'https://graph.facebook.com/v17.0/137613659416752/messages?Content-Type=application/json',
@@ -121,7 +121,7 @@ app.post('/webhook', async (req, res) => {
                         },
                         data: data
                     };
-                    axios.request(config)
+                    await axios.request(config)
                         .then((response) => {
 
                             res.sendStatus(200);

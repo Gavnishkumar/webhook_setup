@@ -95,7 +95,7 @@ app.post('/webhook', async (req, res) => {
                     })
                     .catch((error) => {
                         console.log(error);
-                        sentResponse=false;
+                        sentResponse=false || sentResponse;
                     });
                 // res.sendStatus(200);
             }
@@ -127,7 +127,7 @@ app.post('/webhook', async (req, res) => {
                         .catch((error) => {
                             console.log(error);
                             // res.sendStatus(404);
-                            sentResponse=false;
+                            sentResponse=sentResponse || false;
                         });
                     tosend = user.index;
                 }
@@ -164,7 +164,7 @@ app.post('/webhook', async (req, res) => {
                         sentResponse=true;
                     })
                     .catch((error) => {
-                        sentResponse=false;
+                        sentResponse=sentResponse || false;
                         console.log(error);
                     });
                 // res.sendStatus(200);

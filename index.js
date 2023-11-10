@@ -36,7 +36,7 @@ app.post('/webhook', async (req, res) => {
     let body_param = req.body;
     const verify_token = process.env.TOKEN;
     console.log("received");
-
+    let sentResponse=false;
 
     if (body_param.object) {
         if (body_param.entry &&
@@ -91,11 +91,11 @@ app.post('/webhook', async (req, res) => {
                 await axios.request(config)
                     .then((response) => {
                         console.log("msg send ");
-                        res.sendStatus(200);
+                        sentResponse=true;
                     })
                     .catch((error) => {
                         console.log(error);
-                        res.sendStatus(404);
+                        sentResponse=false;
                     });
                 // res.sendStatus(200);
             }
@@ -112,7 +112,7 @@ app.post('/webhook', async (req, res) => {
                     }
 
                     let data = JSON.stringify(msgtosend);
-                    let config = await {
+                    let config = {
                         method: 'post',
                         maxBodyLength: Infinity,
                         headers: header,
@@ -121,12 +121,13 @@ app.post('/webhook', async (req, res) => {
                     };
                     await axios.request(config)
                         .then((response) => {
-
-                            res.sendStatus(200);
+                            sentResponse=false;
+                            // res.sendStatus(200);
                         })
                         .catch((error) => {
                             console.log(error);
-                            res.sendStatus(404);
+                            // res.sendStatus(404);
+                            sentResponse=false;
                         });
                     tosend = user.index;
                 }
@@ -160,13 +161,19 @@ app.post('/webhook', async (req, res) => {
                 axios.request(config)
                     .then((response) => {
 
-                        res.sendStatus(200);
+                        sentResponse=true;
                     })
                     .catch((error) => {
-                        res.sendStatus(404);
+                        sentResponse=false;
                         console.log(error);
                     });
                 // res.sendStatus(200);
+                if(sentResponse){
+                    res.sendStatus(200)
+                }
+                else{
+                    res.sendStatus(404);
+                }
             }
         } else {
             res.sendStatus(404);

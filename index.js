@@ -51,7 +51,7 @@ app.post('/webhook', async (req, res) => {
                     'Authorization': 'Bearer EAAEgB1BOiCQBO8XN6RuZCqHwgZApycCz0qJIRKfcT0FM7hDkXgN5iatxjYZBFZCaCvB8mveYtq1IZAZAAZAYgwmvndxd4BRJ5BjpbZAjF2zmZCUQX0D2uViTp11ZBCor4QT0EIZBeo3o958EeWTnt6W5DYpyaAuTuLf6XahWZAfglKZA5A3gZBZCiPHX96zUTZAg1Ad4cvg3'
                 }
                 if(msg_body.toLowerCase()==="restart"){
-                    let dlt= await Userchat.deleteOne({phoneno:from});
+                    let dlt = await Userchat.deleteOne({phoneno:from});
                 }
             let user = await Userchat.findOne({ phoneno: from });
             let tosend;
@@ -81,7 +81,7 @@ app.post('/webhook', async (req, res) => {
                 tosend = 0;
                 msg[0].to = "+" + from
                 let data = JSON.stringify(msg[0]);
-                let config = await {
+                let config = {
                     method: 'post',
                     maxBodyLength: Infinity,
                     headers: header,
@@ -95,7 +95,7 @@ app.post('/webhook', async (req, res) => {
                     })
                     .catch((error) => {
                         console.log(error);
-                        sentResponse=false || sentResponse;
+                        sentResponse= false || sentResponse;
                     });
                 // res.sendStatus(200);
             }
@@ -121,7 +121,7 @@ app.post('/webhook', async (req, res) => {
                     };
                     await axios.request(config)
                         .then((response) => {
-                            sentResponse=false;
+                            sentResponse=true;
                             // res.sendStatus(200);
                         })
                         .catch((error) => {
@@ -158,22 +158,24 @@ app.post('/webhook', async (req, res) => {
                     url: 'https://graph.facebook.com/v17.0/137613659416752/messages?Content-Type=application/json',
                     data: data
                 };
-                axios.request(config)
+                await axios.request(config)
                     .then((response) => {
 
                         sentResponse=true;
                     })
                     .catch((error) => {
-                        sentResponse=sentResponse || false;
+                        sentResponse= sentResponse || false;
                         console.log(error);
                     });
                 // res.sendStatus(200);
                 if(sentResponse){
-                    res.sendStatus(200)
+                    res.sendStatus(200);
                 }
-                else{
+                else
+                {
                     res.sendStatus(404);
                 }
+               
             }
         } else {
             res.sendStatus(404);

@@ -236,7 +236,7 @@
         "type": "text",
         "text": {
             "preview_url": false,
-            "body": "_Please choose a number between_ \n *1 to 6*_"
+            "body": "_Please choose a number between_ \n *1 to 6*"
         }
     },
     {
@@ -246,7 +246,7 @@
         "type": "text",
         "text": {
             "preview_url": false,
-            "body": "_Your details has been submitted._ \n _Type_ *Restart* _to Renter again_"
+            "body": "_Your details has been submitted._ \n _Type_ *Restart* _to Reenter again_"
         }
     }
 ]

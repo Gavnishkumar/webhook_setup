@@ -216,7 +216,7 @@
         "type": "text",
         "text": {
             "preview_url": false,
-            "body": "_Please give a correct email no_ \n *(i.e of abc@def.hig)*"
+            "body": "_Please give a correct email_ \n *(i.e of abc@def.hig)*"
         }
     },
     {
@@ -226,7 +226,7 @@
         "type": "text",
         "text": {
             "preview_url": false,
-            "body": "_Please give a correct gender_ \n *male,female or other*"
+            "body": "_Please give a correct gender_"
         }
     },
     {
@@ -236,7 +236,7 @@
         "type": "text",
         "text": {
             "preview_url": false,
-            "body": "_Please choose a numeber between \n *1 to 6*_"
+            "body": "_Please choose a number between_ \n *1 to 6*_"
         }
     },
     {
@@ -246,7 +246,7 @@
         "type": "text",
         "text": {
             "preview_url": false,
-            "body": "_Your details has been submitted._"
+            "body": "_Your details has been submitted._ \n _Type_ *Restart* _to Renter again_"
         }
     }
 ]

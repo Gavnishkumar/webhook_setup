@@ -131,7 +131,7 @@ app.post('/webhook', async (req, res) => {
                     tosend = user.index;
                 }
                 let fieldToUpdate = indexToQuestion(user.index)
-                console.log(fieldToUpdate)
+               
                 let update = await Userchat.updateMany(
                     { phoneno: from },
                     {

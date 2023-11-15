@@ -34,10 +34,7 @@ app.get("/webhook", (req, res) => {
 // This is post request from webhook when webhook get a notification of received messages.
 app.post('/webhook', async (req, res) => {
     let body_param = req.body;
-    const verify_token = process.env.TOKEN;
-
     let sentResponse=false;
-
     if (body_param.object) {
         if (body_param.entry &&
             body_param.entry[0].changes &&
@@ -46,9 +43,10 @@ app.post('/webhook', async (req, res) => {
                 let phone_no_id = body_param.entry[0].changes[0].value.metadata.phone_number_id;
                 let from = body_param.entry[0].changes[0].value.messages[0].from;
                 let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
+                const permanent_token='Bearer '+ process.env.TOKEN;
                 const header={
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer EAAEgB1BOiCQBO8XN6RuZCqHwgZApycCz0qJIRKfcT0FM7hDkXgN5iatxjYZBFZCaCvB8mveYtq1IZAZAAZAYgwmvndxd4BRJ5BjpbZAjF2zmZCUQX0D2uViTp11ZBCor4QT0EIZBeo3o958EeWTnt6W5DYpyaAuTuLf6XahWZAfglKZA5A3gZBZCiPHX96zUTZAg1Ad4cvg3'
+                    'Authorization': permanent_token
                 }
                 if(msg_body.toLowerCase()==="restart"){
                     let dlt = await Userchat.deleteOne({phoneno:from});
